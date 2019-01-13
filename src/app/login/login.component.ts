@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   username = "Jan"
   password = ""
   errormessage = "Invalid credentials!"
-  isValidLogin = false
+  isValidLogin = true
 
   constructor(private router: Router) { }
 

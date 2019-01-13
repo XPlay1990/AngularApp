@@ -1,8 +1,26 @@
-<div>
-Name: <input type="text" name="username" [(ngModel)]="username">
-password: <input type="password" name="password" [(ngModel)]="password">
+<div class="row">
+    <form name="adduser" ng-submit="AddUser(adduser.$valid)">
+        <div id="name-group" class="form-group-lg">
+            <input type="text" required name="name" ng-model="userfullName" class="form-control" placeholder="Full Name">
+        </div>
+        <div id="name-group" class="form-group-lg">
+            <input type="email" required name="email" ng-model="useremail" class="form-control" placeholder="Email">
+        </div>
+        <div id="name-group" class="form-group-lg">
+            <input type="password" required name="password" ng-model="userpassword" class="form-control " placeholder="Password atleast 6 character">
+        </div>
+        <div id="name-group" class="form-group-lg">
+            <button type="submit" class="form-control btn btn-info">
+            </button>
+        </div>
+    </form>
+</div>
 
-<button (click)=handleLogin()>Login</button>
+<div>
+    Name: <input type="text" name="username" [(ngModel)]="username">
+    password: <input type="password" name="password" [(ngModel)]="password">
+
+    <button (click)=handleLogin()>Login</button>
 </div>
 
 <small *ngIf='isValidLogin == false'>{{errormessage}}</small>
