@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { timingSafeEqual } from 'crypto';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +18,9 @@ export class HardcodedAuthenticationService {
   isUserLoggedIn() {
     let user = sessionStorage.getItem('authenticatedUser');
     return (user != null);
+  }
+
+  logout(){
+    sessionStorage.removeItem('authenticatedUser')
   }
 }
