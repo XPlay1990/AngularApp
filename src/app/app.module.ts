@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ErrorComponent } from './error/error.component';
 import { TodosComponent } from './todos/todos.component';
+import { TopmenuComponent } from './topmenu/topmenu.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { TodosComponent } from './todos/todos.component';
     WelcomeComponent,
     LoginComponent,
     ErrorComponent,
-    TodosComponent
+    TodosComponent,
+    TopmenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

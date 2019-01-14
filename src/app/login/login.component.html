@@ -1,4 +1,6 @@
-<div class="row">
+<h1>Login</h1>
+
+<!-- <div class="row">
     <form name="adduser" ng-submit="AddUser(adduser.$valid)">
         <div id="name-group" class="form-group-lg">
             <input type="text" required name="name" ng-model="userfullName" class="form-control" placeholder="Full Name">
@@ -14,13 +16,14 @@
             </button>
         </div>
     </form>
+</div> -->
+<div class="container">
+    <div>
+        Name: <input type="text" name="username" [(ngModel)]="username">
+        Password: <input type="password" name="password" [(ngModel)]="password">
+
+        <button (click)=handleLogin() class="btn btn-success">Login</button>
+    </div>
+
+    <div class="alert alert-warning" *ngIf='isValidLogin == false'>{{errormessage}}</div>
 </div>
-
-<div>
-    Name: <input type="text" name="username" [(ngModel)]="username">
-    password: <input type="password" name="password" [(ngModel)]="password">
-
-    <button (click)=handleLogin()>Login</button>
-</div>
-
-<small *ngIf='isValidLogin == false'>{{errormessage}}</small>
