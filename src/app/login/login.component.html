@@ -25,5 +25,5 @@
         <button (click)=handleLogin() class="btn btn-success">Login</button>
     </div>
 
-    <div class="alert alert-warning" *ngIf='isValidLogin == false'>{{errormessage}}</div>
+    <div class="alert alert-warning" *ngIf='!isValidLogin'>{{errormessage}}</div>
 </div>

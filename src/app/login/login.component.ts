@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogin() {
-    console.log("Username: " + this.username);
     this.validateUserCredentials()
   }
 
