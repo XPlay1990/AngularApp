@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RouteGuardService } from "./RouteGuardService.1";
+import { RouteGuardService } from "./route-guard.service";
 
 describe('RouteGuardService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

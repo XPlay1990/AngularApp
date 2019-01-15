@@ -4,7 +4,7 @@ import { HardcodedAuthenticationService } from './hardcoded-authentication.servi
 @Injectable({
   providedIn: 'root'
 })
-export class RouteGuarService implements CanActivate {
+export class RouteGuardService implements CanActivate {
   constructor(private hcas: HardcodedAuthenticationService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
