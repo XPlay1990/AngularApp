@@ -3,3 +3,8 @@
   Welcome {{username}}!
   You can mamange your todos <a routerLink="/todos">here</a>.
 </div>
+
+<div class="container">
+  Click here to get a customized welcome message!
+  <button (click)="getWelcomeFromSpring()" class="btn btn-success">Get Welcome Message</button>
+</div>
