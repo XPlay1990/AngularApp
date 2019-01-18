@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+export class HelloWorldBean{
+  constructor(public msg:string){}
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,6 +13,6 @@ export class WelcomeDataService {
   constructor(private httpClient:HttpClient) { }
 
   executeHelloWorldBeanService(){
-    return this.httpClient.get('http://localhost:9020/hello-world/jan');
+    return this.httpClient.get<HelloWorldBean>('http://localhost:9020/hello-world/jan');
   }
 }

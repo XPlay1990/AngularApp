@@ -10,6 +10,7 @@ import { WelcomeDataService } from '../service/data/welcome-data.service';
 export class WelcomeComponent implements OnInit {
 
   private username=''
+  welcomeMsgFromSpring:string
   constructor(private route:ActivatedRoute, private welcomeService:WelcomeDataService) { }
 
   ngOnInit() {
@@ -17,6 +18,12 @@ export class WelcomeComponent implements OnInit {
   }
 
   getWelcomeFromSpring(){
-    console.log(this.welcomeService.executeHelloWorldBeanService());
+    this.welcomeService.executeHelloWorldBeanService().subscribe(
+      response => this.handleSuccessfulResponse(response)
+    );
+  }
+
+  handleSuccessfulResponse(response){
+    this.welcomeMsgFromSpring = response.msg;
   }
 }

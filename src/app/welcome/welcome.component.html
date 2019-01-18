@@ -8,3 +8,8 @@
   Click here to get a customized welcome message!
   <button (click)="getWelcomeFromSpring()" class="btn btn-success">Get Welcome Message</button>
 </div>
+
+<div class="container" *ngIf="getWelcomeFromSpring">
+  <H2>Your welcome message from Spring-Boot</H2>
+  {{welcomeMsgFromSpring}}
+</div>
