@@ -18,12 +18,17 @@ export class WelcomeComponent implements OnInit {
   }
 
   getWelcomeFromSpring(){
-    this.welcomeService.executeHelloWorldBeanService().subscribe(
-      response => this.handleSuccessfulResponse(response)
+    this.welcomeService.executeHelloWorldBeanService(this.username).subscribe(
+      response => this.handleSuccessfulResponse(response),
+      error => this.handleErrorResponse(error)
     );
   }
 
   handleSuccessfulResponse(response){
     this.welcomeMsgFromSpring = response.msg;
+  }
+
+  handleErrorResponse(error){
+    this.welcomeMsgFromSpring = error.error.message
   }
 }

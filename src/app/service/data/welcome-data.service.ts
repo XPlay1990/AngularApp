@@ -12,7 +12,7 @@ export class WelcomeDataService {
 
   constructor(private httpClient:HttpClient) { }
 
-  executeHelloWorldBeanService(){
-    return this.httpClient.get<HelloWorldBean>('http://localhost:9020/hello-world/jan');
+  executeHelloWorldBeanService(name){
+    return this.httpClient.get<HelloWorldBean>(`http://localhost:9020/hello-world/${name}`);
   }
 }
