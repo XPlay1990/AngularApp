@@ -9,6 +9,8 @@ import { TodoDataService } from '../service/data/todo-data.service';
 export class TodosComponent implements OnInit {
 
   todos: Todo[]
+
+  message: string
   // todos = [
   //   new Todo(1, 'learn angular', false, new Date()),
   //   new Todo(2, 'start own business', false, new Date()),
@@ -18,10 +20,23 @@ export class TodosComponent implements OnInit {
   constructor(private todoService: TodoDataService) { }
 
   ngOnInit() {
+    this.refreshTodos()
+  }
+
+  refreshTodos() {
     this.todoService.getTodos('Jan').subscribe(
       response => {
-        console.log(response)
         this.todos = response;
+      }
+    )
+  }
+
+  deleteTodo(id) {
+    this.todoService.deleteTodo("Jan", id).subscribe(
+      response => {
+        console.log(response)
+        this.message = `Deleted of Todo ${id} successful`
+        this.refreshTodos()
       }
     )
   }
