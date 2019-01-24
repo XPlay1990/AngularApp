@@ -13,11 +13,15 @@ export class TodoDataService {
     return this.httpClient.get<Todo[]>(`http://localhost:9020/users/${username}/todos`);
   }
 
-  getTodo(username,id){
+  getTodo(username, id) {
     return this.httpClient.get<Todo>(`http://localhost:9020/users/${username}/todos/${id}`);
   }
 
   deleteTodo(username, id) {
     return this.httpClient.delete(`http://localhost:9020/users/${username}/todos/${id}`)
+  }
+
+  updateTodo(username, id, todo) {
+    return this.httpClient.put<Todo>(`http://localhost:9020/users/${username}/todos/${id}`, todo);
   }
 }
