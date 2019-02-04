@@ -22,7 +22,7 @@ export class WelcomeDataService {
   createBasicAuthenticationHttpHeader() {
     let username = 'Jan';
     let password = 'password';
-    let basicAuthHeaderString = 'Basic' + window.btoa(username + ':' + password);
+    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
     return basicAuthHeaderString
   }
 }
