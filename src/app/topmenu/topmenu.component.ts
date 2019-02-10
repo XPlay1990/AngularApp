@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
+import { BasicAuthenticationService } from '../service/basic-authentication.service';
 
 @Component({
   selector: 'app-topmenu',
@@ -8,7 +8,9 @@ import { HardcodedAuthenticationService } from '../service/hardcoded-authenticat
 })
 export class TopmenuComponent implements OnInit {
 
-  constructor(private hardcodedAuthenticationService: HardcodedAuthenticationService) { }
+  public routerLinkVariable = "/welcome"; 
+
+  constructor(private basicAuthService: BasicAuthenticationService) { }
 
   ngOnInit() {
   }

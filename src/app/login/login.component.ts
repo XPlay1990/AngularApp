@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
-import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 import { BasicAuthenticationService } from '../service/basic-authentication.service';
 
 @Component({
@@ -17,7 +15,6 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private hardcodedAuthentication: HardcodedAuthenticationService,
     private basicAuthService: BasicAuthenticationService) { }
 
   ngOnInit() {
@@ -25,15 +22,6 @@ export class LoginComponent implements OnInit {
 
   handleLogin() {
     this.handleBasicAuthLogin()
-  }
-
-  private validateUserCredentials() {
-    if (this.hardcodedAuthentication.authenticate(this.username, this.password)) {
-      this.isValidLogin = true
-      this.router.navigate(['welcome', this.username])
-    } else {
-      this.isValidLogin = false
-    }
   }
 
   private handleBasicAuthLogin() {
