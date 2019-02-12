@@ -9,7 +9,7 @@ import { BasicAuthenticationService } from '../service/basic-authentication.serv
 })
 export class LoginComponent implements OnInit {
   username = "Jan"
-  password = "password"
+  password = "rawPassword1234!ä#"
   errormessage = "Invalid credentials!"
   isValidLogin = true
 
@@ -21,11 +21,24 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogin() {
-    this.handleBasicAuthLogin()
+    this.handleJWTAuthLogin()
   }
 
-  private handleBasicAuthLogin() {
-    this.basicAuthService.executeBasicAuthenticationService(this.username, this.password).subscribe(
+  // private handleBasicAuthLogin() {
+  //   this.basicAuthService.executeBasicAuthenticationService(this.username, this.password).subscribe(
+  //     data => {
+  //       this.isValidLogin = true
+  //       this.router.navigate(['welcome', this.username])
+  //     },
+  //     error => {
+  //       console.log(error);
+  //       this.isValidLogin = false
+  //     }
+  //   )
+  // }
+
+  private handleJWTAuthLogin() {
+    this.basicAuthService.executeJWTAuthenticationService(this.username, this.password).subscribe(
       data => {
         this.isValidLogin = true
         this.router.navigate(['welcome', this.username])
