@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BasicAuthenticationService } from '../basic-authentication.service';
+import { JWTAuthenticationService } from '../jwt-authenticationservice';
 import { API_URL } from 'src/app/app.constants';
 
 export class HelloWorldBean {

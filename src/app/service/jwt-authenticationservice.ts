@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 import { API_URL } from '../app.constants';
 
@@ -10,25 +10,9 @@ export const SESSION_ITEMS = [AUTHENTICATED_USER, TOKEN];
 @Injectable({
   providedIn: 'root'
 })
-export class BasicAuthenticationService {
+export class JWTAuthenticationService {
 
   constructor(private httpClient: HttpClient) { }
-
-  // executeBasicAuthenticationService(username, password) {
-  //   let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
-  //   let headers = new HttpHeaders({ Authorization: basicAuthHeaderString })
-
-  //   return this.httpClient.get<AuthenticationBean>(`${API_URL}/basicauth`, { headers })
-  //     .pipe(
-  //       map(
-  //         data => {
-  //           sessionStorage.setItem(AUTHENTICATED_USER, username);
-  //           sessionStorage.setItem(TOKEN, basicAuthHeaderString);
-  //           return data;
-  //         }
-  //       )
-  //     );
-  // }
 
   executeJWTAuthenticationService(username, password) {
     return this.httpClient.post<any>(`${API_URL}/authenticate`, { username, password })

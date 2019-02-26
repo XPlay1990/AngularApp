@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BasicAuthenticationService } from '../service/basic-authentication.service';
+import { JWTAuthenticationService } from '../service/jwt-authenticationservice';
 
 @Component({
   selector: 'app-topmenu',
@@ -10,7 +10,7 @@ export class TopmenuComponent implements OnInit {
 
   public routerLinkVariable = "/welcome"; 
 
-  constructor(private basicAuthService: BasicAuthenticationService) { }
+  constructor(private basicAuthService: JWTAuthenticationService) { }
 
   ngOnInit() {
   }

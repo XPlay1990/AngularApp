@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BasicAuthenticationService } from '../service/basic-authentication.service';
+import { JWTAuthenticationService as JWTAuthenticationService } from '../service/jwt-authenticationservice';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +8,14 @@ import { BasicAuthenticationService } from '../service/basic-authentication.serv
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username = "Jan"
+  username = "XPlay"
   password = "rawPassword1234!ä#"
   errormessage = "Invalid credentials!"
   isValidLogin = true
 
   constructor(
     private router: Router,
-    private basicAuthService: BasicAuthenticationService) { }
+    private basicAuthService: JWTAuthenticationService) { }
 
   ngOnInit() {
   }
@@ -23,19 +23,6 @@ export class LoginComponent implements OnInit {
   handleLogin() {
     this.handleJWTAuthLogin()
   }
-
-  // private handleBasicAuthLogin() {
-  //   this.basicAuthService.executeBasicAuthenticationService(this.username, this.password).subscribe(
-  //     data => {
-  //       this.isValidLogin = true
-  //       this.router.navigate(['welcome', this.username])
-  //     },
-  //     error => {
-  //       console.log(error);
-  //       this.isValidLogin = false
-  //     }
-  //   )
-  // }
 
   private handleJWTAuthLogin() {
     this.basicAuthService.executeJWTAuthenticationService(this.username, this.password).subscribe(

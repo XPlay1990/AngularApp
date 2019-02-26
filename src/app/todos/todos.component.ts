@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../service/data/todo-data.service';
 import { Router } from '@angular/router';
+import { JWTAuthenticationService } from '../service/jwt-authenticationservice';
 
 @Component({
   selector: 'app-todos',
@@ -18,14 +19,17 @@ export class TodosComponent implements OnInit {
   //   new Todo(3, 'get rich', false, new Date())
   // ]
 
-  constructor(private todoService: TodoDataService, private router: Router) { }
+  constructor(private jwtservice: JWTAuthenticationService, private todoService: TodoDataService, private router: Router) { }
+
+  private username;
 
   ngOnInit() {
+    this.username = this.jwtservice.getAuthenticatedUser()
     this.refreshTodos()
   }
 
   refreshTodos() {
-    this.todoService.getTodos('Jan').subscribe(
+    this.todoService.getTodos(this.username).subscribe(
       response => {
         this.todos = response;
       }
@@ -33,7 +37,7 @@ export class TodosComponent implements OnInit {
   }
 
   deleteTodo(id) {
-    this.todoService.deleteTodo("Jan", id).subscribe(
+    this.todoService.deleteTodo(this.username, id).subscribe(
       response => {
         console.log(response)
         this.message = `Deleted of Todo ${id} successful`
@@ -46,7 +50,7 @@ export class TodosComponent implements OnInit {
     this.router.navigate(['todos', id])
   }
 
-  addTodo(){
+  addTodo() {
     this.router.navigate(['todos', -1])
   }
 }
