@@ -5,19 +5,19 @@ import { JWTAuthenticationService } from '../jwt-authenticationservice';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpIntercepterBasicAuthService implements HttpInterceptor {
+export class HttpIntercepterAddJWTHeader implements HttpInterceptor {
 
   constructor(private basicAuthService: JWTAuthenticationService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
-    let basicAuthHeaderString = this.basicAuthService.getAuthenticatedToken();
+    let jwtAuthHeaderString = this.basicAuthService.getAuthenticatedToken();
     let username = this.basicAuthService.getAuthenticatedUser();
 
-    if (basicAuthHeaderString && username) {
+    if (jwtAuthHeaderString && username) {
 
       request = request.clone({
         setHeaders: {
-          Authorization: basicAuthHeaderString
+          Authorization: jwtAuthHeaderString
         }
       })
     }

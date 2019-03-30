@@ -39,7 +39,6 @@ export class TodosComponent implements OnInit {
   deleteTodo(id) {
     this.todoService.deleteTodo(this.username, id).subscribe(
       response => {
-        console.log(response)
         this.message = `Deleted of Todo ${id} successful`
         this.refreshTodos()
       }
